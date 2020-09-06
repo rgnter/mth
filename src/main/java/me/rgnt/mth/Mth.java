@@ -1,12 +1,16 @@
-/* package here */
+package me.rgnt.mth;
 
+import me.rgnt.mth.vectors.PolarVector;
+import me.rgnt.mth.vectors.SphericalVector;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Math utility class
  * <br>
- * Created by <a href="https://rgnter.github.io">rgnt</a> and WattMann#7756
+ * Created by <a href="https://rgnter.github.io">rgnt</a> and wattman
+ *
+ * Uses XZY coordinates. Y up.
  */
 public class Mth {
 
@@ -16,14 +20,14 @@ public class Mth {
      * @param magnitude Magnitude
      * @param azimuth   Azimuth angle in degrees
      *
-     * @return Vector with populated X and Z
+     * @return Vector with populated X and Y
      */
     public static @NotNull Vector polarToCartesian(double magnitude, double azimuth) {
-        return new Vector((magnitude * Math.cos(Math.toRadians(azimuth))), 0, (magnitude * Math.sin(Math.toRadians(azimuth))));
+        return new Vector((magnitude * Math.cos(Math.toRadians(azimuth))), (magnitude * Math.sin(Math.toRadians(azimuth))), 0);
     }
 
     /**
-     * Converts spherical coordinates to cartesian coordinates
+     * Converts spherical coordinates to cartesian coordinates.
      *
      * @param magnitude   Magnitude
      * @param azimuth     Azimuth angle in degrees
@@ -31,7 +35,7 @@ public class Mth {
      *
      * @return Vector with populated X, Y and Z
      */
-    public static Vector sphericalToCartesian(double magnitude, double azimuth, double incline) {
+    public static @NotNull Vector sphericalToCartesian(double magnitude, double azimuth, double incline) {
         return new Vector(
                 (magnitude * (Math.sin(Math.toRadians(incline)) * Math.cos(Math.toRadians(azimuth)))),
                 magnitude * Math.cos(Math.toRadians(incline)),
@@ -41,24 +45,31 @@ public class Mth {
     /**
      * Converts cartesian coordinates to spherical coordinates.
      *
-     * @param source      Source position
-     * @param destination Destination position
+     * @param position Vector position
      *
-     * @return Vector. X being radius, Y being yaw, and Z being pitch
+     * @return Spherical vector
      * */
-    public static @NotNull Vector cartesianToSpherical(@NotNull Vector source, @NotNull Vector destination) {
-        Vector local = destination.clone().subtract(source);
-        double radius = Math.sqrt(Math.pow(local.getX(), 2) + Math.pow(local.getY(), 2) + Math.pow(local.getZ(), 2));
-        double azimuth = Math.toDegrees(Math.atan(local.getZ() / local.getX()));
-        double inclination = Math.toDegrees(Math.acos(local.getY() / radius));
+    public static @NotNull
+    SphericalVector cartesianToSpherical(@NotNull Vector position) {
+        double radius = Math.sqrt(Math.pow(position.getX(), 2) + Math.pow(position.getY(), 2) + Math.pow(position.getZ(), 2));
+        double azimuth = Math.toDegrees(Math.atan(position.getZ() / position.getX()));
+        double inclination = Math.toDegrees(Math.acos(position.getY() / radius));
 
-        double yaw;
+        return new SphericalVector(radius, azimuth, inclination);
+    }
 
-        if(local.getX() > local.getZ())
-            yaw = azimuth - 90;
-        else yaw = azimuth + 90;
+    /**
+     * Converts cartesian coordinates to polar coordinates.
+     *
+     * @param position Vector position
+     *
+     * @return Polar vector
+     */
+    public static @NotNull PolarVector cartesianToPolar(@NotNull Vector position) {
+        double radius  = Math.sqrt(Math.pow(position.getX(), 2) + Math.pow(position.getZ(), 2));
+        double azimuth = Math.atan2(position.getX(), position.getZ());
 
-        return new Vector(radius, yaw, degToPitch(inclination));
+        return new PolarVector(radius, azimuth);
     }
 
 
@@ -151,5 +162,4 @@ public class Mth {
         result = result | blue;
         return result;
     }
-
 }

@@ -12,3 +12,13 @@ Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
 - Degrees to pitch
 - Decimal round
 - RGB to encoded int
+
+# For devs
+This project is compiled via [Apache Maven](https://maven.apache.org/) (For more info see **Compiling**). 
+We use [Jetbrains annotations](https://mvnrepository.com/artifact/org.jetbrains/annotations/16.0.1) for javadoc code documentation & inspection.
+
+#### Compiling
+Project is compiled via maven command: `mvn clean package`. Resulting JAR file can be found in directory `target/mth-{VERSION}-{BUILD TYPE}.jar`
+
+#### Contributors
+- *Project owner & developer*: [**rgnt**](https://rgnter.github.io)

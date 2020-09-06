@@ -1,2 +1,2 @@
 # mth
-Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
+One class math utilities for Spigot/PaperMC (Anything based on Bukkit API)

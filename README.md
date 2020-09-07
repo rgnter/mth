@@ -27,9 +27,9 @@ Repository:
 Dependency:
 ```xml
 <dependency>
-    <groupId>me.rgnt</groupId>
-    <artifactId>mth</artifactId>
-    <version>1.0-release</version>
+  <groupId>xyz.rgnt</groupId>
+  <artifactId>mth</artifactId>
+  <version>1.0-release</version>
 </dependency>
 ```
 

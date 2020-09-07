@@ -1,4 +1,4 @@
-package me.rgnt.mth.vectors;
+package xyz.rgnt.mth.vectors;
 
 /**
  * Polar vector

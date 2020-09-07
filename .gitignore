@@ -1,3 +1,5 @@
+# intelliJ
 .idea
 target
 *.iml
+dependency-reduced-pom.xml

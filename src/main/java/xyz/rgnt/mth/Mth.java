@@ -1,7 +1,7 @@
-package me.rgnt.mth;
+package xyz.rgnt.mth;
 
-import me.rgnt.mth.vectors.PolarVector;
-import me.rgnt.mth.vectors.SphericalVector;
+import xyz.rgnt.mth.vectors.PolarVector;
+import xyz.rgnt.mth.vectors.SphericalVector;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 

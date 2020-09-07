@@ -5,7 +5,7 @@ Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
 - cartesian to polar coordinates 
 - cartesian to spherical coordinates
 - polar to cartesian coordinates 
-- shperical to cartesian coordinates
+- spherical to cartesian coordinates
 - Yaw to degrees
 - Pitch to degrees
 - Degrees to yaw

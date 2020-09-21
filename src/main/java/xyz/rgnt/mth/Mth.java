@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Math utility class
  * <br>
- * Created by <a href="https://rgnter.github.io">rgnt</a> and wattman
+ * Created by <a href="https://rgnter.github.io">rgnt</a> and wattmann
  *
  * Uses XZY coordinates. Y up.
  */

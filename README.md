@@ -2,16 +2,16 @@
 Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
 
 # Contents
-- cartesian to polar coordinates 
-- cartesian to spherical coordinates
-- polar to cartesian coordinates 
-- spherical to cartesian coordinates
+- Cartesian to polar coordinates 
+- Cartesian to spherical coordinates
+- Polar to cartesian coordinates 
+- Spherical to cartesian coordinates
 - Yaw to degrees
 - Pitch to degrees
 - Degrees to yaw
 - Degrees to pitch
 - Decimal round
-- RGB to encoded int
+- RGB to int
 
 # For devs
 This project is compiled via [Apache Maven](https://maven.apache.org/) (For more info see **Compiling**). 
@@ -20,8 +20,8 @@ We use [Jetbrains annotations](https://mvnrepository.com/artifact/org.jetbrains/
 Repository:
 ```xml
 <repository>
-    <id>rgnt-repo</id>
-    <url>http://nexus.realmland.eu/nexus/content/repositories/rgnt-repo/</url>
+    <id>karyon</id>
+    <url>http://nexus.realmland.eu/nexus/content/repositories/karyon/</url>
 </repository>
 ```
 Dependency:
@@ -35,7 +35,7 @@ Dependency:
 
 
 ### Compiling
-Project is compiled via maven command: `mvn clean package`. Resulting JAR file can be found in directory `target/mth-{VERSION}-{BUILD TYPE}.jar`
+Project can be compiled with shell script `./mth-build`. Resulting JAR file can be found in directory `target/mth-{VERSION}-{BUILD TYPE}.jar`
 
 ### Contributors
 - *Project owner & developer*: [**rgnt**](https://rgnter.github.io)

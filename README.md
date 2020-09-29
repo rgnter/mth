@@ -21,7 +21,7 @@ Repository:
 ```xml
 <repository>
     <id>karyon</id>
-    <url>http://nexus.realmland.eu/nexus/content/repositories/karyon/</url>
+    <url>http://nexus.realmland.eu/content/repositories/karyon/</url>
 </repository>
 ```
 Dependency:

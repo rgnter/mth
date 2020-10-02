@@ -1,5 +1,5 @@
 # Mth
-Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
+Math utilities for Spigot(or anything based on SpigotAPI - PaperMC, SSSpigot).
 
 # Contents
 - Cartesian to polar coordinates 

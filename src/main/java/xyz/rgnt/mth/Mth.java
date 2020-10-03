@@ -1,5 +1,7 @@
 package xyz.rgnt.mth;
 
+import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove;
+import xyz.rgnt.mth.tuples.Pair;
 import xyz.rgnt.mth.vectors.PolarVector;
 import xyz.rgnt.mth.vectors.SphericalVector;
 import org.bukkit.util.Vector;
@@ -72,6 +74,48 @@ public class Mth {
         return new PolarVector(radius, azimuth);
     }
 
+    /**
+     * Sorts Vectors by coordinates
+     * @param vec0 Vector
+     * @param vec1 Vector
+     * @return Pair of Vectors. <br>
+     *         First vector has the most great values. <br>
+     *         Second vector has the least great values <br>
+     */
+    public static @NotNull Pair<Vector, Vector> sortMostToLeast(@NotNull Vector vec0, @NotNull Vector vec1) {
+        Vector most = new Vector();
+        Vector least = new Vector();
+
+        if(vec0.getX() > vec1.getX()) {
+            most.setX(vec0.getX());
+            least.setX(vec1.getX());
+        }
+        else {
+            most.setX(vec1.getX());
+            least.setX(vec0.getX());
+        }
+
+        if(vec0.getY() > vec1.getY()) {
+            most.setY(vec0.getY());
+            least.setY(vec1.getY());
+        }
+        else {
+            most.setY(vec1.getY());
+            least.setY(vec0.getY());
+        }
+
+        if(vec0.getZ() > vec1.getZ()) {
+            most.setZ(vec0.getZ());
+            least.setZ(vec1.getZ());
+        }
+        else {
+            most.setZ(vec1.getZ());
+            least.setZ(vec0.getZ());
+        }
+
+        return Pair.of(most, least);
+    }
+
 
     /**
      * Converts yaw angle to degree angle
@@ -131,17 +175,22 @@ public class Mth {
 
 
     /**
-     * Converts <span color="red">R</span><span color="green">G</span><span color="blue">B</span> color to int.
+     * Converts  <span color="white">A</span><span color="red">R</span><span color="green">G</span><span color="blue">B</span> color to big-endian int.
      * <br>
-     * Red value will encoded on the most significant bit place. Blue value will encoded on the least significant bit place.
+     * Alpha value will encoded on the most significant bit place. Blue value will encoded on the least significant bit place.
      * <br>
-     * If value of any color exceeds 255 or precedes 0, value will be trimmed to maximum/minimum valid value.
+     * If value of any color exceeds 255 or precedes 0, value will be trimmed to maximum/minimum valid value
+     * @param alpha Alpha value
      * @param red   Red value
      * @param green Green value
      * @param blue  Blue value
      * @return Encoded RGB
      */
-    public static int rgbToInt(int red, int green, int blue) {
+    public static int rgbaToInt(int alpha, int red, int green, int blue) {
+        if(alpha > 255)
+            alpha = 255;
+        if(alpha < 0)
+            alpha = 0;
         if(red > 255)
             red = 255;
         if(red < 0)
@@ -156,10 +205,26 @@ public class Mth {
             blue = 0;
 
 
-        int result = 0b00000000_00000000_00000000;
+        int result = 0b00000000_00000000_00000000_00000000;
+        result = result | alpha << 24;
         result = result | red   << 16;
         result = result | green << 8;
         result = result | blue;
         return result;
+    }
+
+    /**
+     * Converts <span color="red">R</span><span color="green">G</span><span color="blue">B</span> color to big-endian int.
+     * <br>
+     * Red value will encoded on the most significant bit place (3rd byte). Blue value will encoded on the least significant bit place.
+     * <br>
+     * If value of any color exceeds 255 or precedes 0, value will be trimmed to maximum/minimum valid value.
+     * @param red   Red value
+     * @param green Green value
+     * @param blue  Blue value
+     * @return Encoded RGB
+     */
+    public static int rgbToInt(int red, int green, int blue) {
+        return rgbaToInt(0, red, green, blue);
     }
 }

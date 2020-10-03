@@ -1,5 +1,7 @@
 package xyz.rgnt.mth.vectors;
 
+import lombok.Getter;
+
 /**
  * Spherical vector
  * <br>
@@ -7,6 +9,7 @@ package xyz.rgnt.mth.vectors;
  */
 public class SphericalVector extends PolarVector {
 
+    @Getter
     private double incline;
 
     /**
@@ -20,10 +23,5 @@ public class SphericalVector extends PolarVector {
         this.incline = incline;
     }
 
-    /**
-     * @return Incline in degrees
-     */
-    public double getIncline() {
-        return incline;
-    }
+
 }

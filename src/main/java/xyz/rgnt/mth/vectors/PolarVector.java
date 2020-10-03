@@ -1,5 +1,7 @@
 package xyz.rgnt.mth.vectors;
 
+import lombok.Getter;
+
 /**
  * Polar vector
  * <br>
@@ -7,7 +9,9 @@ package xyz.rgnt.mth.vectors;
  */
 public class PolarVector {
 
+    @Getter
     private double radius;
+    @Getter
     private double azimuth;
 
     /**
@@ -21,25 +25,12 @@ public class PolarVector {
     }
 
     /**
-     * @return Radius
-     */
-    public double getRadius() {
-        return radius;
-    }
-
-    /**
      * @return Diameter
      */
     public double getDiameter() {
         return getRadius() * 2;
     }
 
-    /**
-     * @return Azimuth in degrees
-     */
-    public double getAzimuth() {
-        return azimuth;
-    }
 
 
 }

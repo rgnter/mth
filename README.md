@@ -1,5 +1,7 @@
 # Mth
-Math utilities for Spigot/PaperMC (Anything based on Bukkit API)
+*// math //*
+
+Math library for Spigot(or anything based on SpigotAPI - PaperMC, SSSpigot).
 
 # Contents
 - Tuples
@@ -24,7 +26,7 @@ Repository:
 ```xml
 <repository>
     <id>karyon</id>
-    <url>http://nexus.realmland.eu/nexus/content/repositories/karyon/</url>
+    <url>http://nexus.realmland.eu/repository/karyon/</url>
 </repository>
 ```
 Dependency:

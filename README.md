@@ -25,17 +25,17 @@ Math library for Spigot(or anything based on SpigotAPI - PaperMC, SSSpigot).
 Repository:
 ```xml
 <repository>
-    <id>karyon</id>
-    <url>http://nexus.realmland.eu/repository/karyon/</url>
+    <id>pvpcraft.cz</id>
+    <url>https://repo.pvpcraft.cz/releases/</url>
 </repository>
 ```
 Dependency:
 ```xml
 <dependency>
-  <groupId>xyz.rgnt</groupId>
-  <artifactId>mth</artifactId>
-  <version>1.4-release</version>
-</dependency>
+    <groupId>xyz.rgnt</groupId>
+    <artifactId>mth</artifactId>
+    <version>1.4-release</version>
+<dependency>
 ```
 ### Compiling
 This project requires [lombok plugin](https://plugins.jetbrains.com/plugin/6317-lombok/) for getter/setter code generation and is compiled via [Apache Maven](https://maven.apache.org/). 

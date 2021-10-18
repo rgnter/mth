@@ -1,6 +1,6 @@
 package xyz.rgnt.mth;
 
-import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove;
+
 import xyz.rgnt.mth.tuples.Pair;
 import xyz.rgnt.mth.vectors.PolarVector;
 import xyz.rgnt.mth.vectors.SphericalVector;
@@ -175,7 +175,7 @@ public class Mth {
 
 
     /**
-     * Converts  <span color="white">A</span><span color="red">R</span><span color="green">G</span><span color="blue">B</span> color to big-endian int.
+     * Converts ARGB color to big-endian int.
      * <br>
      * Alpha value will encoded on the most significant bit place. Blue value will encoded on the least significant bit place.
      * <br>
@@ -214,7 +214,7 @@ public class Mth {
     }
 
     /**
-     * Converts <span color="red">R</span><span color="green">G</span><span color="blue">B</span> color to big-endian int.
+     * Converts RGB color to big-endian int.
      * <br>
      * Red value will encoded on the most significant bit place (3rd byte). Blue value will encoded on the least significant bit place.
      * <br>

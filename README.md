@@ -19,22 +19,32 @@ Math library for Spigot(or anything based on SpigotAPI - PaperMC, SSSpigot).
 - Decimal round
 - ARGB to int (big-endian)
 - RGB to int  (big-endian)
+- TriConsumer
 
 # For devs
 ### Maven dependency
 Repository:
 ```xml
 <repository>
-    <id>karyon</id>
-    <url>http://nexus.realmland.eu/repository/karyon/</url>
+    <id>nexus@ethernal</id>
+    <url>https://nexus.ethernal.cz/repository/maven/</url>
 </repository>
 ```
 Dependency:
 ```xml
+<!-- Source -->
 <dependency>
   <groupId>xyz.rgnt</groupId>
   <artifactId>mth</artifactId>
-  <version>1.4-release</version>
+  <version>1.5-release</version>
+</dependency>
+
+<!-- JavaDocs -->
+<dependency>
+  <groupId>xyz.rgnt</groupId>
+  <artifactId>mth</artifactId>
+  <version>1.5-release</version>
+  <classifier>javadoc</classifier>
 </dependency>
 ```
 ### Compiling

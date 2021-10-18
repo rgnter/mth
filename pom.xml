@@ -6,12 +6,13 @@
 
     <groupId>xyz.rgnt</groupId>
     <artifactId>mth</artifactId>
-    <version>1.4-release</version>
+    <version>1.5-release</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>8</java.version>
     </properties>
 
     <repositories>
@@ -19,17 +20,13 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-        <repository>
-            <id>rgnt-repo</id>
-            <url>http://nexus.realmland.eu/nexus/content/repositories/rgnt-repo/</url>
-        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -46,6 +43,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus@ethernal</id>
+            <name>Mixed Artifacts</name>
+            <url>https://nexus.ethernal.cz/repository/maven</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -59,7 +64,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <!-- EXCLUDE MANIFEST & Include source ?-->
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>
@@ -69,6 +73,32 @@
                                 </filter>
                             </filters>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                jar
+                            </goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals><goal>deploy</goal></goals>
                     </execution>
                 </executions>
             </plugin>

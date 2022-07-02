@@ -1,0 +1,48 @@
+plugins {
+    id "java-library"
+    id "io.freefair.lombok" version "6.3.0"
+
+    id "maven-publish"
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(12))
+    }
+}
+
+group 'xyz.rgnt'
+version '1.6-release'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    compileOnly("org.spigotmc:spigot-api:1.16.3-R0.1-SNAPSHOT")
+    implementation 'org.jetbrains:annotations:23.0.0'
+}
+
+publishing {
+    publications {
+        gpr(MavenPublication) {
+            artifactId = 'crowned-bank-paper'
+            from components.java
+        }
+    }
+    publishing {
+        repositories {
+            maven {
+                name = "central"
+                url = uri("https://nexus.battleland.eu/repository/central/")
+                credentials {
+                    username = System.getenv("NEXUS_USERNAME")
+                    password = System.getenv("NEXUS_PASSWORD")
+                }
+            }
+        }
+    }
+}

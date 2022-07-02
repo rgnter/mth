@@ -26,8 +26,8 @@ Math library for Spigot(or anything based on SpigotAPI - PaperMC, SSSpigot).
 Repository:
 ```xml
 <repository>
-    <id>nexus@ethernal</id>
-    <url>https://nexus.ethernal.cz/repository/maven/</url>
+    <id>battleland</id>
+    <url>https://nexus.battleland.eu/repository/central/</url>
 </repository>
 ```
 Dependency:

@@ -45,9 +45,8 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus@ethernal</id>
-            <name>Mixed Artifacts</name>
-            <url>https://nexus.ethernal.cz/repository/maven</url>
+            <id>nexus@battleland</id>
+            <url>https://nexus.battleland.eu/repository/central/</url>
         </repository>
     </distributionManagement>
 
